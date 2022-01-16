@@ -1,0 +1,44 @@
+# Snake Water Gun
+import random
+
+lst = ["snake", "water", "gun"]
+
+count = 10
+usr_pts = 0
+com_pts = 0
+
+while count:
+    print("Total Turns: 10")
+    print(f"No. of turns left: {count}")
+
+    com_choice = random.choice(lst)
+    usr_choice = input("Enter your choice snake, water or gun: ")
+    if usr_choice == com_choice:
+        print("Try Again")
+        count -= 1
+    elif usr_choice == "snake" and com_choice == "gun":
+        print("You lose")
+        count -= 1
+        com_pts += 1
+    elif usr_choice == "water" and com_choice == "snake":
+        print("You lose")
+        count -= 1
+        com_pts += 1
+    elif usr_choice == "gun" and com_choice == "snake":
+        print("You win")
+        count -= 1
+        usr_pts += 1
+    elif usr_choice == "snake" and com_choice == "water":
+        print("You win")
+        count -= 1
+        usr_pts += 1
+    elif usr_choice == "gun" and com_choice == "water":
+        print("You lose")
+        count -= 1
+        com_pts += 1
+    elif usr_choice == "water" and com_choice == "gun":
+        print("You lose")
+        count -= 1
+        usr_pts += 1
+if count <= 0:
+    print(f"GAME OVER\nYour Points = {usr_pts}\nCPU Points = {com_pts}")
